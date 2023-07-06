@@ -7,13 +7,22 @@ export function UrlFormSection() {
     const [shortUrl, setShortUrl] = useState('');
   
     const backendUrl = 'http://localhost:5000';
+
+    iziToast.settings({
+        
+    });
   
     const handleShorten = async () => {
   
         if (!longUrl) {
             iziToast.error({
-            position: 'topRight',
-            message: 'Long URL is required',
+                position: 'bottomRight',
+                message: 'Long URL is required',
+                close: true,
+                backgroundColor: '#BC6C25',
+                progressBarColor: '#DDA15E',
+                messageColor: '#FEFAE0',
+                timeout: 2000,
             });
             return;
         }
@@ -34,8 +43,13 @@ export function UrlFormSection() {
                 let data = await response.json();
                 console.log(data);
                 iziToast.success({
-                    position: 'topRight',
+                    position: 'bottomRight',
                     message: data.message,
+                    close: true,
+                    backgroundColor: '#606C38',
+                    progressBarColor: '#FEFAE0',
+                    messageColor: '#FEFAE0',
+                    timeout: 2000,
                 });
                 setShortUrl(`${backendUrl}/short/${data.shortUrl}`);
 
@@ -55,8 +69,13 @@ export function UrlFormSection() {
             }).catch(error => {
                 console.error(error);
                 iziToast.error({
-                    position: 'topRight',
-                    message: 'Erro ao salvar, verifique o console.',
+                    position: 'bottomRight',
+                    message: 'Erro ao salvar, verifique o console',
+                    close: true,
+                    backgroundColor: '#BC6C25',
+                    progressBarColor: '#DDA15E',
+                    messageColor: '#FEFAE0',
+                    timeout: 2000,
                 });
             });
         } catch (error) {
@@ -85,19 +104,19 @@ export function UrlFormSection() {
     };
 
     return(
-        <section className="w-4/6 h-full min-h-full bg-slate-800 flex flex-col items-center justify-center">
-            <div className="w-1/3 h-fit min-h-fit bg-white rounded-xl px-10 py-8 text-center flex flex-col justify-center space-y-5">
-                <h1 className='text-2xl font-bold mb-3'>MayUrl Shortener</h1>
+        <section className="w-5/6 h-full min-h-full bg-hero-pattern bg-center bg-cover flex flex-col items-center justify-center text-[#FEFAE0]">
+            <div className="w-1/3 h-fit min-h-fit bg-[#606C38] rounded-xl px-10 py-8 text-center flex flex-col justify-center space-y-5 shadow-2xl">
+                <h1 className="text-4xl mb-3 font-['Caprasimo']">WeShort</h1>
                 <div className='w-full flex justify-between space-x-3'>
                     <input
                         id='longUrlField'
-                        className='w-full border-solid bg-orange-400 rounded-md px-4 py-3 text-white placeholder:text-white focus:ring-2 focus:ring-orange-600 focus:border-orange-600 focus:outline-0'
+                        className='w-full border-solid bg-[#283618] rounded-md px-4 py-3 focus:ring-2 focus:ring-[#BC6C25] focus:border-[#BC6C25] focus:outline-0'
                         type="text"
                         placeholder="Enter a long URL"
                         value={longUrl}
                         onChange={(e) => setLongUrl(e.target.value)}
                     />
-                    <button id='createBtn' className='w-fit px-4 py-3 bg-orange-400 rounded-md text-white focus:ring-2 focus:ring-orange-600 focus:border-orange-600' onClick={handleShorten}>
+                    <button id='createBtn' className='w-fit max-w-[51px] px-4 py-3 bg-[#283618] rounded-md focus:ring-2 focus:ring-[#BC6C25] focus:border-[#BC6C25]' onClick={handleShorten}>
                         <i class="btn-icon fa-solid fa-link"></i>
                     </button>
                 </div>
@@ -105,18 +124,19 @@ export function UrlFormSection() {
                     <div className='w-full flex text-center justify-between space-x-3'>
                         <input
                             id='shortUrlField'
-                            className='w-full border-solid bg-blue-400 rounded-md px-4 py-3 text-white placeholder:text-white focus:ring-2 focus:ring-blue-600 focus:border-blue-600 focus:outline-0'
+                            className='w-full border-solid bg-[#283618] rounded-md px-4 py-3 focus:ring-2 focus:ring-blue-600 focus:border-blue-600 focus:outline-0'
                             type="text"
                             placeholder={shortUrl}
                             value={shortUrl}
                             readOnly
                         />
-                        <button id='copyBtn' className='w-fit px-5 py-3 bg-blue-400 rounded-md text-white focus:ring-2 focus:ring-blue-600 focus:border-blue-600' onClick={copyUrl}>
+                        <button id='copyBtn' className='w-fit max-w-[51px] px-5 py-3 bg-[#283618] rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600' onClick={copyUrl}>
                             <i class="btn-icon fa-solid fa-clipboard"></i>
                         </button>
                     </div>
                 )}
             </div>
+            <span className='absolute bottom-5 left-5 italic'>Image by <a className='underline' href='https://unsplash.com/@trapnation'>Andre Benz</a> at <a className='underline' href='https://unsplash.com/'>Unsplash</a>.</span>
         </section>
     );
 };
