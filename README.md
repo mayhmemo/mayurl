@@ -1,2 +1,2 @@
-# mayurl
- A simple URL shortner that doesn't want your money
+# WeShort
+ A simple URL shortener that doesn't want your money
