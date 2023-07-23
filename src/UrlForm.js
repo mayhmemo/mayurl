@@ -7,10 +7,6 @@ export function UrlFormSection() {
     const [shortUrl, setShortUrl] = useState('');
   
     const backendUrl = 'http://localhost:5000';
-
-    iziToast.settings({
-        
-    });
   
     const handleShorten = async () => {
   
