@@ -1,10 +1,12 @@
 import React from 'react';
-import { UrlFormSection } from './UrlForm';
+import { UrlFormSection } from './urlForm';
+import { UrlListSection } from './urlList';
 
 function App() {
   return (
-    <main className='w-full h-screen min-h-screen max-h-screen bg-[#283618]'>
+    <main className='flex w-full h-screen min-h-screen max-h-screen'>
       <UrlFormSection />
+      <UrlListSection />
     </main>
   );
 }
