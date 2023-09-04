@@ -100,7 +100,7 @@ export function UrlFormSection() {
     };
 
     return(
-        <section className="w-5/6 h-full min-h-full bg-hero-pattern bg-center bg-cover flex flex-col items-center justify-center text-[#FEFAE0]">
+        <section className="w-4/5 h-full min-h-full bg-hero-pattern bg-center bg-cover flex flex-col items-center justify-center text-[#FEFAE0]">
             <div className="w-1/3 h-fit min-h-fit bg-[#606C38] rounded-xl px-10 py-8 text-center flex flex-col justify-center space-y-5 shadow-2xl">
                 <h1 className="text-4xl mb-3 font-['Caprasimo']">WeShort</h1>
                 <div className='w-full flex justify-between space-x-3'>
@@ -113,7 +113,7 @@ export function UrlFormSection() {
                         onChange={(e) => setLongUrl(e.target.value)}
                     />
                     <button id='createBtn' className='w-fit max-w-[51px] px-4 py-3 bg-[#283618] rounded-md focus:ring-2 focus:ring-[#BC6C25] focus:border-[#BC6C25]' onClick={handleShorten}>
-                        <i class="btn-icon fa-solid fa-link"></i>
+                        <i className="btn-icon fa-solid fa-link"></i>
                     </button>
                 </div>
                 {shortUrl && (
@@ -127,7 +127,7 @@ export function UrlFormSection() {
                             readOnly
                         />
                         <button id='copyBtn' className='w-fit max-w-[51px] px-5 py-3 bg-[#283618] rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600' onClick={copyUrl}>
-                            <i class="btn-icon fa-solid fa-clipboard"></i>
+                            <i className="btn-icon fa-solid fa-clipboard"></i>
                         </button>
                     </div>
                 )}
