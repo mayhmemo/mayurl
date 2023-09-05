@@ -87,11 +87,11 @@ export function UrlFormSection() {
             let copyBtn = document.getElementById('copyBtn');
             let copyBtnIcon = copyBtn.querySelector('.btn-icon');
 
-            copyBtnIcon.classList.remove('fa-clipboard');
+            copyBtnIcon.classList.remove('fa-copy');
             copyBtnIcon.classList.add('fa-check');
             setTimeout(() => {
                 copyBtnIcon.classList.remove('fa-check');
-                copyBtnIcon.classList.add('fa-clipboard');
+                copyBtnIcon.classList.add('fa-copy');
             }, 1000);
         })
         .catch(function(error) {
@@ -127,7 +127,7 @@ export function UrlFormSection() {
                             readOnly
                         />
                         <button id='copyBtn' className='w-fit max-w-[51px] px-5 py-3 bg-[#283618] rounded-md focus:ring-2 focus:ring-blue-600 focus:border-blue-600' onClick={copyUrl}>
-                            <i className="btn-icon fa-solid fa-clipboard"></i>
+                            <i class="btn-icon fa-solid fa-copy"></i>
                         </button>
                     </div>
                 )}
